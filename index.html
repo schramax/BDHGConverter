@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinDecHexGray Converter</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>BinDecHexGray Converter</h1>
+            <p class="subtitle">Real-Time Normal-to-Gray-Code Converter</p>
+        </header>
+
+        <section class="controls-section glass-panel">
+            <div class="control-group">
+                <label for="bitwidth-input">Bitwidth</label>
+                <div class="input-wrapper bitwidth-wrapper">
+                    <input type="text" id="bitwidth-input" class="mono-font" value="8">
+                    <div class="spinners">
+                        <button class="spin-btn up" data-target="bitwidth-input">▲</button>
+                        <button class="spin-btn down" data-target="bitwidth-input">▼</button>
+                    </div>
+                </div>
+            </div>
+            <button id="clear-btn" class="btn-primary">Clear All</button>
+        </section>
+
+        <main class="converter-grid">
+            <!-- Normal Representation Column -->
+            <section class="converter-column glass-panel">
+                <h2>Normal Representation</h2>
+                
+                <div class="input-group">
+                    <label for="norm-bin">Binary</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="norm-bin" class="mono-font" data-radix="2" data-type="norm" value="00000000">
+                        <div class="spinners">
+                            <button class="spin-btn up" data-target="norm-bin">▲</button>
+                            <button class="spin-btn down" data-target="norm-bin">▼</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="norm-dec">Decimal</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="norm-dec" class="mono-font" data-radix="10" data-type="norm" value="0">
+                        <div class="spinners">
+                            <button class="spin-btn up" data-target="norm-dec">▲</button>
+                            <button class="spin-btn down" data-target="norm-dec">▼</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="norm-hex">Hexadecimal</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="norm-hex" class="mono-font" data-radix="16" data-type="norm" value="00">
+                        <div class="spinners">
+                            <button class="spin-btn up" data-target="norm-hex">▲</button>
+                            <button class="spin-btn down" data-target="norm-hex">▼</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gray-Code Representation Column -->
+            <section class="converter-column glass-panel">
+                <h2>Gray-Code Representation</h2>
+                
+                <div class="input-group">
+                    <label for="gray-bin">Binary</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="gray-bin" class="mono-font" data-radix="2" data-type="gray" value="00000000">
+                        <div class="spinners">
+                            <button class="spin-btn up" data-target="gray-bin">▲</button>
+                            <button class="spin-btn down" data-target="gray-bin">▼</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="gray-dec">Decimal</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="gray-dec" class="mono-font" data-radix="10" data-type="gray" value="0">
+                        <div class="spinners">
+                            <button class="spin-btn up" data-target="gray-dec">▲</button>
+                            <button class="spin-btn down" data-target="gray-dec">▼</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="gray-hex">Hexadecimal</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="gray-hex" class="mono-font" data-radix="16" data-type="gray" value="00">
+                        <div class="spinners">
+                            <button class="spin-btn up" data-target="gray-hex">▲</button>
+                            <button class="spin-btn down" data-target="gray-hex">▼</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Designed by schramax</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
