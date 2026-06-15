@@ -1,6 +1,7 @@
 # BinDecHexGray Converter
 
 A real-time, responsive, and installable Progressive Web App (PWA) for converting unsigned integers between Normal and Gray-code representations. 
+
 App URL: [BDHG Converter App](https://schramax.github.io/BDHGConverter/)
 
 ## Features
